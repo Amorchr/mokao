@@ -199,7 +199,7 @@ public class HomeFragment extends BaseFragment implements OnItemClickListener, V
                 //  Toast.makeText(LoginActivity.this, "noHttpPostString请求成功" + response.get(), Toast.LENGTH_LONG).show();
 
                 Getbanner jsonTest= mGson.fromJson(response.get().toString(),Getbanner.class);
-                if(jsonTest.getCode()==100){
+                if(response.get().getJSONObject("code").equals(100+"")){
 
                 }else if(jsonTest.getCode()==200){
 
