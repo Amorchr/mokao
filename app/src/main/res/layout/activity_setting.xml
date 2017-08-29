@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.linkhand.mokao.ui.activity.my.SettingActivity">
+
+
+    <include
+        layout="@layout/include_header_red"/>
+
+    <RelativeLayout
+        android:id="@+id/back_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x10"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/x10"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/yijianfankui"
+            android:textColor="@color/blackText"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="@dimen/x14"
+            android:layout_height="@dimen/x14"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_go_right"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/signout_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x10"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/x10"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/signout"
+            android:textColor="@color/blackText"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="@dimen/x14"
+            android:layout_height="@dimen/x14"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_go_right"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

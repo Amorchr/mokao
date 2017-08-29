@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/defaultBackgroundGray"
+    android:orientation="vertical"
+    tools:context="com.linkhand.mokao.ui.activity.module.AnswerActivity">
+
+    <include
+        layout="@layout/include_header_red_countdown"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/x10">
+
+        <TextView
+            android:id="@+id/answer_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_textview_small_corner_white"
+            android:padding="@dimen/x8"
+            android:text="考试题目考试题目考试题目考试题目考试题目考试题目"
+            android:textColor="@color/blackText"/>
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/answer_title"
+            android:layout_marginBottom="@dimen/x10"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@drawable/bg_textview_small_corner_white"
+            android:divider="@null">
+
+        </ListView>
+
+        <ScrollView
+            android:id="@+id/analysis_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listview"
+            android:layout_above="@+id/current_answer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_textview_small_corner_white"
+                android:orientation="vertical"
+                android:padding="@dimen/x10">
+
+                <TextView
+                    android:id="@+id/right_answer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正确答案："
+                    android:textColor="@color/blackText"/>
+
+                <View
+                    style="@style/grayline"
+                    android:layout_marginBottom="@dimen/x10"
+                    android:layout_marginTop="@dimen/x10"/>
+
+                <TextView
+                    android:id="@+id/analysis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="错误解析："
+                    android:textColor="@color/blackText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x5"
+                    android:lineSpacingExtra="@dimen/x3"
+                    android:text="错误解析原因错误解析原因错误解析原因错误解析原因错误解析原因"
+                    android:textColor="@color/grayText"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/current_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottom_layout"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/x10"
+            android:text="5/100"/>
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/prev_answer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_textview_small_corner_gray"
+                android:gravity="center"
+                android:padding="@dimen/x8"
+                android:text="@string/prev_answer"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/next_answer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_weight="1"
+                android:background="@drawable/bg_textview_small_corner_redtopic"
+                android:gravity="center"
+                android:padding="@dimen/x8"
+                android:text="@string/next_answer"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

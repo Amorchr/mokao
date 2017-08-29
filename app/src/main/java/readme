@@ -1,0 +1,14 @@
+//      EventBus使用说明
+//       EventBus.getDefault().post(new EventFlag("login","你好"));
+//
+
+//    @Override
+//    protected boolean isBindEventBusHere() {
+//        return true;
+//    }
+//    @Subscribe
+//    public void onEvent(EventFlag s){
+//        if (s.getFlag().equals("login")){
+//            showToast(s.getObject().toString());
+//        }
+//    }

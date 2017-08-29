@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/defaultBackgroundGray"
+    android:orientation="vertical"
+    tools:context="com.linkhand.mokao.ui.activity.my.PayActivity">
+
+
+    <include
+        layout="@layout/include_header_red"/>
+
+    <GridView
+        android:id="@id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x60"
+        android:layout_margin="@dimen/x10"
+        android:horizontalSpacing="@dimen/x20"
+        android:numColumns="3"
+        android:visibility="visible">
+    </GridView>
+
+    <TextView
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x10"
+        android:background="@drawable/bg_textview_small_corner_redtopic"
+        android:gravity="center"
+        android:padding="@dimen/x8"
+        android:text="@string/pay"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/x10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/agree_1"
+            android:textColor="@color/grayText"/>
+
+        <TextView
+            android:id="@+id/xieyi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:gravity="center"
+            android:text="@string/agree_2"
+            android:textColor="@color/colorTopic"/>
+    </LinearLayout>
+</LinearLayout>

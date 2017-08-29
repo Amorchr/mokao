@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/defaultBackgroundGray"
+    android:orientation="vertical"
+    tools:context="com.linkhand.mokao.ui.activity.module.FinishExamActivity">
+
+    <include
+        layout="@layout/include_header_red"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y160"
+        android:background="@color/colorTopic">
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="95"
+            android:textColor="@color/yellowFD"
+            android:textSize="@dimen/x50"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/score"
+            android:layout_centerHorizontal="true"
+            android:text="@string/total_score"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/score"
+            android:layout_marginBottom="@dimen/x5"
+            android:layout_marginTop="@dimen/x5"
+            android:layout_toRightOf="@+id/score"
+            android:text="@string/score"
+            android:textColor="@color/yellowFD"
+            android:textSize="@dimen/x16"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/score"
+            android:layout_centerHorizontal="true"
+            android:text="@string/exam_success_finish"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/yuan"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red951"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/error_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/x10"
+            android:text="错题  9题"
+            android:textColor="@color/white"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="@dimen/y10"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/use_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/x10"
+            android:text="用时  52:00"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/retest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x60"
+            android:layout_marginRight="@dimen/x60"
+            android:background="@drawable/bg_textview_small_corner_redtopic"
+            android:gravity="center"
+            android:padding="@dimen/x10"
+            android:text="@string/reexam"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/look_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x60"
+            android:layout_marginRight="@dimen/x60"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@drawable/bg_textview_small_corner_white"
+            android:gravity="center"
+            android:padding="@dimen/x10"
+            android:text="查看错题"
+            android:textColor="@color/colorTopic"/>
+    </LinearLayout>
+</LinearLayout>

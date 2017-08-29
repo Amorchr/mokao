@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.linkhand.mokao"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+android {
+
+    defaultConfig {
+        multiDexEnabled true
+    }
+
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':lib')
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.yanzhenjie.nohttp:nohttp:1.1.3'
+    compile 'com.zhy:base-adapter:3.0.3'
+    compile 'com.bigkoo:convenientbanner:2.0.5'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.commit451:PhotoView:1.2.4'
+    compile 'com.isseiaoki:simplecropview:1.0.13'
+    compile 'com.github.iwgang:countdownview:2.1.6'
+    compile 'com.yongchun:com.yongchun.imageselector:1.1.0'
+    compile 'com.loopeer.android.thirdparty.pulltorefresh:Android-PullToRefresh:2.1.1'
+    testCompile 'junit:junit:4.12'
+}

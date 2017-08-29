@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorTopic</item>
+        <item name="colorPrimaryDark">@color/colorTopic</item>
+        <item name="colorAccent">@color/colorTopic</item>
+    </style>
+
+
+    <!--灰色的线-->
+    <style name="grayline">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/defaultBackgroundGray</item>
+    </style>
+    <!--灰色的线左右margin 10-->
+    <style name="grayline_margin">
+        <item name="android:layout_marginLeft">@dimen/x10</item>
+        <item name="android:layout_marginRight">@dimen/x10</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/defaultBackgroundGray</item>
+    </style>
+
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+
+</resources>
