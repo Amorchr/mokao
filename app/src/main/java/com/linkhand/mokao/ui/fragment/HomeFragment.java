@@ -31,6 +31,7 @@ import com.linkhand.mokao.utils.ImageUtils;
 import com.linkhand.mokao.utils.NetworkImageHolderView;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.rest.OnResponseListener;
 import com.yanzhenjie.nohttp.rest.Request;
 import com.yanzhenjie.nohttp.rest.RequestQueue;
 import com.yanzhenjie.nohttp.rest.Response;
@@ -38,6 +39,7 @@ import com.yanzhenjie.nohttp.rest.SimpleResponseListener;
 import com.zhy.adapter.abslistview.CommonAdapter;
 import com.zhy.adapter.abslistview.ViewHolder;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -47,6 +49,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 import static com.linkhand.mokao.api.ConnectUrl.LOGIN_MIMA;
+import static com.linkhand.mokao.api.ConnectUrl.PRODUCT_INDEX;
 
 /**
  * Created by JCY on 2017/8/18.
@@ -72,6 +75,7 @@ public class HomeFragment extends BaseFragment implements OnItemClickListener, V
     private CommonAdapter mAdapter;
     private static Gson mGson = new Gson();
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -93,7 +97,8 @@ public class HomeFragment extends BaseFragment implements OnItemClickListener, V
 
     private void initData() {
         mPictureList = new ArrayList<>();
-        mPictureList.add("");
+        getbanner();
+       // mPictureList.add("");
 
         mSortList = new ArrayList<>();
         mAdapter = new GridviewAdapter(getActivity(), R.layout.home_gridview_item, mSortList);
@@ -189,30 +194,54 @@ public class HomeFragment extends BaseFragment implements OnItemClickListener, V
         //第一步：创建Nohttp请求对列（如果是本类使用的比较频繁，在onCreate的时候初始化一次就行了，这里是为了怕忘记这个步骤）
         final RequestQueue requestQueues = NoHttp.newRequestQueue();
         //第二步：创建请求对象（url是请求路径， RequestMethod.POST是请求方式）
-        Request<JSONObject> stringPostRequest = NoHttp.createJsonObjectRequest(LOGIN_MIMA, RequestMethod.GET);
+        Request<JSONObject> stringPostRequest = NoHttp.createJsonObjectRequest(PRODUCT_INDEX, RequestMethod.GET);
+
 
         //第三步：加入到请求对列中，requestQueues.add()分别是请求列的请求标志，请求对象，监听回调
-        requestQueues.add(0, stringPostRequest, new SimpleResponseListener<String>() {
+        requestQueues.add(0, stringPostRequest, new OnResponseListener<JSONObject>() {
+
+            @Override
+            public void onStart(int what) {
+                showLoading();
+            }
+
             @Override//请求成功的回调
             public void onSucceed(int i, Response<JSONObject> response) {
                 Log.i("s", "onSucceed: " + response);
                 //  Toast.makeText(LoginActivity.this, "noHttpPostString请求成功" + response.get(), Toast.LENGTH_LONG).show();
 
-                Getbanner jsonTest= mGson.fromJson(response.get().toString(),Getbanner.class);
-                if(response.get().getJSONObject("code").equals(100+"")){
+                JSONObject json = response.get();
+                List<Getbanner> banner=mGson.fromJson(json.toString(), Getbanner.class);
+              //  Getbanner banner = mGson.fromJson(json.toString(), Getbanner.class);
 
-                }else if(jsonTest.getCode()==200){
+                try {
+                    if (json.getInt("code")==100) {
 
-                }else if(jsonTest.getCode()==300){
+                    } else if (json.getInt("code")==200) {
+                        if(json.getJSONArray("info").length()!=0){
+                            for(int a=0;a<json.getJSONArray("info").length();a++){
+                                mPictureList.add(json.getJSONArray("info").getInt(a));
+                            }
 
+                        }
+                    } else if (json.getInt("code")==300) {
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+            }
+
+            @Override
+            public void onFailed(int what, Response<JSONObject> response) {
+                hideLoading();
+            }
+
+            @Override
+            public void onFinish(int what) {
 
             }
 
-            //请求失败的回调
-            public void onFailed(int i, String s, Object o, Exception e, int i1, long l) {
-                Log.e("failed", "onFailed: " + e);
-            }
         });
 
     }

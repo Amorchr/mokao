@@ -87,7 +87,7 @@ public class LoginActivity extends BaseActivity {
         //第一步：创建Nohttp请求对列（如果是本类使用的比较频繁，在onCreate的时候初始化一次就行了，这里是为了怕忘记这个步骤）
         final RequestQueue requestQueues = NoHttp.newRequestQueue();
                //第二步：创建请求对象（url是请求路径， RequestMethod.POST是请求方式）
-               Request<String> stringPostRequest = NoHttp.createStringRequest(PRODUCT_INDEX, RequestMethod.POST);
+               Request<String> stringPostRequest = NoHttp.createStringRequest( LOGIN_MIMA, RequestMethod.POST);
               // 添加请求参数例如"http://www.sciencenet.cn/xml/iphoneinterface.aspx?type=news&nums=20"
              stringPostRequest.add("phone", username);
                 stringPostRequest.add("password", password);
